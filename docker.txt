@@ -1,0 +1,45 @@
+https://hub.docker.com/官方地址
+账号：shizf
+
+docker 加速器：
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://0b421c09.m.daocloud.io
+
+ssh:
+1、Ubuntuserver虚拟机ip：192.168.153.128
+2、ssh登录：ssh szf@192.168.153.128 不允许root直接登录 进去之后在root登录
+
+
+redis:
+
+docker run -p 6379:6379 -v $PWD/data:/data  -d redis redis-server --appendonly yes
+
+mysql:
+mkdir -p ~/mysql/data ~/mysql/logs ~/mysql/conf
+
+docker run -p 3306:3306 --name mymysql -v $PWD/conf/my.cnf:/etc/mysql/my.cnf -v $PWD/logs:/logs -v $PWD/data:/mysql_data -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql
+
+wordpress:
+
+docker run --name wordpress -p 8001:80 --link db:mysql -d wordpress
+
+docker run --name wordpress -p 8001:80 -e WORDPRESS_DB_HOST=192.168.153.128:3306 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=123456 -d wordpress
+
+nginx:
+docker run -p 8080:80 --name nginx_web -it nginx /bin/bash
+
+rabbitmq:
+docker run -d --name rabbitmq --publish 5671:5671  --publish 5672:5672 --publish 4369:4369 --publish 25672:25672 --publish 15671:15671 --publish 15672:15672 rabbitmq:management
+
+###################################################
+.net core:
+
+## 打包生成镜像
+docker build --rm -t "coreapp:1.0.0" -f ./Dockerfile .
+
+## 运行
+docker run --name webapp01 -d -p "60000:8000" coreapp:1.0.0
+
+## 进入容器
+docker exec -it webapp01 /bin/bash

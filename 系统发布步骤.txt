@@ -1,0 +1,29 @@
+# 本地镜像文件发布
+
+#nginx
+scp -r nginx szf@192.168.153.128:/home/szf/net
+
+#web服务
+scp -r net szf@192.168.153.128:/home/szf/net
+
+## 服务运行
+
+## .net core:
+
+## 打包生成镜像
+docker build --rm -t "coreapp:1.0.0" -f ./Dockerfile .
+
+## 运行
+docker run --name webapp01 -d -p "60000:8000" coreapp:1.0.0
+
+## 进入容器
+docker exec -it webapp01 /bin/bash
+
+##nginx
+
+## 打包生成镜像
+docker build --rm -t "nginx:netcore" -f ./Dockerfile .
+
+## run
+
+docker run -p 8080:80 --name nginx_web -it nginx:netcore /bin/bash

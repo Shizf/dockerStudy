@@ -1,0 +1,14 @@
+version: '2.0'
+services:
+  web01:
+    image: coreapp:1.0.0
+    ports:
+      - "60000:8000"    
+  web02:
+    image: coreapp:1.0.0
+    ports:
+    - "60001:8000"
+  nginx01:
+    image: nginx:netcore-1.0
+    ports:
+    - "8098:8099"

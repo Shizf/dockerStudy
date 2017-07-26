@@ -1,0 +1,33 @@
+mysql on centos 7
+
+http://www.cnblogs.com/Lam7/p/6253564.html
+
+jdk
+
+http://www.cnblogs.com/spiders/archive/2016/09/06/5845727.html  方法2
+
+mycat
+
+http://blog.csdn.net/y534560449/article/details/54095574
+
+docker重装
+
+http://www.cnblogs.com/skying555/p/6054256.html
+
+
+mycat 可参考文章：
+
+http://www.cnblogs.com/zhongshiqiang/p/5968768.html   （mysql+mycat搭建稳定高可用集群，负载均衡，主备复制，读写分离）
+
+http://blog.jobbole.com/109189/  （MyCAT 数据分片入门实战）
+
+http://www.cnblogs.com/756623607-zhang/p/6850916.html (mycat主键自增 参考数据库方式)
+
+mycat web:
+
+http://www.blogv5.com/?p=12
+
+mycat-web 访问：
+需要先启动zookeeper
+
+http://192.168.16.246:8082/mycat

@@ -1,0 +1,4 @@
+拷贝文件到服务器:scp mysql-cluste.yml szf@192.168.153.128:/home/szf/dockers/
+
+删除文件夹:rm -rf ddd
+
